@@ -63,6 +63,8 @@ public class StageReader {
           stage.addPlayer(new Cat(stage.grid.cellAtColRow(col, row).get(), isBot));
         } else if(actor.equalsIgnoreCase("dog")) {
           stage.addPlayer(new Dog(stage.grid.cellAtColRow(col, row).get(), isBot));
+        } else if(actor.equalsIgnoreCase("babycat")) {
+          stage.addPlayer(new BabyCat(stage.grid.cellAtColRow(col, row).get(), isBot));
         } else {
           throw new FormatException(" actor '" + actor + "' unknown.");
         }
@@ -72,6 +74,7 @@ public class StageReader {
       System.out.println("Error reading '" + path + "', creating default stage.");
       stage = new Stage();
       stage.addPlayer(new Cat(stage.grid.cellAtColRow(0, 0).get(), false));
+      stage.addPlayer(new BabyCat(stage.grid.cellAtColRow(3,5 ).get(), true));
       stage.addPlayer(new Dog(stage.grid.cellAtColRow(0, 15).get(), true));
       stage.addPlayer(new Bird(stage.grid.cellAtColRow(12, 9).get(), true));
     }

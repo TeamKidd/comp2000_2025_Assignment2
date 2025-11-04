@@ -86,9 +86,9 @@ public class Stage {
 
   public List<Cell> getClearRadius(Cell from, int size) {
     List<Cell> init = grid.getRadius(from, size);
-    for(Actor player: listOfPlayers) {
-      init.remove(player.loc);
-    }
+    listOfPlayers.stream()
+    .map(player -> player.loc)
+    .forEach(init::remove);
     return init;
   }
 
